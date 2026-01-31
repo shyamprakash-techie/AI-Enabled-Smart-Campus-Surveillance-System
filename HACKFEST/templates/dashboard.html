@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Monitoring Dashboard</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f8; }
+        h2 { text-align: center; }
+        table { width: 80%; margin: auto; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+        th { background: #2c3e50; color: white; }
+    </style>
+</head>
+<body>
+
+<h2>Security Monitoring Dashboard</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Camera ID</th>
+            <th>Event</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody id="data"></tbody>
+</table>
+
+<script>
+function loadAlerts() {
+    fetch("/alerts")
+        .then(res => res.json())
+        .then(data => {
+            let table = "";
+            data.slice(-10).forEach(a => {
+                table += `<tr>
+                    <td>${a.camera_id}</td>
+                    <td>${a.event}</td>
+                    <td>${a.time}</td>
+                </tr>`;
+            });
+            document.getElementById("data").innerHTML = table;
+        });
+}
+
+setInterval(loadAlerts, 1000);
+</script>
+
+</body>
+</html>
