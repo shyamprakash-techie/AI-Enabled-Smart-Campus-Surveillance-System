@@ -19,3 +19,4 @@ and unusual activities in campus environments.
 
 ## Demo
 (Local deployment – edge-based system)
+(YOLOv8 nano model will be automatically downloaded on first run.)
