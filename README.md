@@ -16,7 +16,7 @@ and unusual activities in campus environments.
 2. python api_server.py
 3. python edge_ai.py
 4. Open http://localhost:5000
+(YOLOv8 nano model will be automatically downloaded on first run.)
 
 ## Demo
 (Local deployment – edge-based system)
-(YOLOv8 nano model will be automatically downloaded on first run.)
